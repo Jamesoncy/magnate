@@ -4,13 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import jquery from 'jquery'
+import VModal from 'vue-js-modal'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-select'
+import 'bootstrap-select/dist/css/bootstrap-select.min.css'
 /* eslint-disable */
 window.$ = jquery
 window.jQuery = jquery
 require('font-awesome/css/font-awesome.min.css')
 require('datatables')
-require('bootstrap')
-require('bootstrap/dist/css/bootstrap.min.css')
 require('sticky-kit/dist/sticky-kit.js')
 require('jquery-slimscroll')
 require('sidebarmenu')
@@ -19,8 +22,9 @@ require('bootstrap/dist/css/bootstrap.min.css')
 require('../static/css/style.css')
 require('../static/css/helper.css')
 require('metismenu')
+require('../static/js/lib/datatables/datatables.min.js')
 Vue.config.productionTip = false
-
+Vue.use(VModal, { dynamic: true })
 new Vue({
   el: '#app',
   router,
