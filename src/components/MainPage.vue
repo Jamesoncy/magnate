@@ -37,10 +37,20 @@
                         <li class="nav-label">Home</li>
                         <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Products Setup</span></a>
                             <ul aria-expanded="false" class="collapse">
-                              <router-link :to="{ path: '/main-page/raw-materials'}"><span class="hide-menu">Raw Materials</span></router-link>
-                              <router-link :to="{ path: '/main-page/Products'}"><span class="hide-menu">Products</span></router-link>
+                              <router-link :to="{ path: '/products-setup/raw-materials'}"><span class="hide-menu">Raw Materials</span></router-link>
+                              <router-link :to="{ path: '/products-setup/Products'}"><span class="hide-menu">Products</span></router-link>
+                              <router-link :to="{ path: '/products-setup/vendor'}"><span class="hide-menu">Vendor</span></router-link>
+                              <router-link :to="{ path: '/products-setup/purchase-raw-materials'}"><span class="hide-menu">Request Raw Mats</span></router-link>
                             </ul>
                         </li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Transaction</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                          <router-link :to="{ path: '/transaction/bottled-water'}"><span class="hide-menu">Bottled Water</span></router-link>
+                          <router-link :to="{ path: '/transaction/create-bottled-water'}"><span class="hide-menu">Create Bottled Water</span></router-link>
+                          <router-link :to="{ path: '/transaction/transfer-bottled-water'}"><span class="hide-menu">Transfer Bottled Water</span></router-link>
+                          <router-link :to="{ path: '/transaction/uom'}"><span class="hide-menu">Uom</span></router-link>
+                        </ul>
+                      </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -80,9 +90,6 @@ export default {
     return {
       title: 'Main Page'
     }
-  },
-  beforeUpdate () {
-
   },
   mounted () {
     $('.datatable').DataTable()

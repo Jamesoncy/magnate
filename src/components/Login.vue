@@ -17,10 +17,7 @@
                                         <label>Password</label>
                                         <input type="password" class="form-control" placeholder="Password">
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
-                                    <div class="register-link m-t-15 text-center">
-                                        <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
-                                    </div>
+                                    <button type="button" v-on:click="goToMainPage()" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
                                 </form>
                             </div>
                         </div>
@@ -36,6 +33,11 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    goToMainPage () {
+      window.location.href = window.location.href + 'dashboard'
     }
   }
 }
