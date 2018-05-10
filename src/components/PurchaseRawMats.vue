@@ -11,21 +11,25 @@
                 <thead>
                 <tr>
                   <th>P.O. #</th>
+                  <th>Date</th>
                   <th>Name</th>
                   <th>Total Price</th>
                   <th>Received</th>
                   <th>View</th>
+                  <th>Supply</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr v-for="(item, index) in data" :key="index">
                   <td>{{ item.po_no }}</td>
+                  <td>2017-01-01</td>
                   <td>{{ item.name }}</td>
                   <td>{{ formatPrice(item.total_price) }}</td>
                   <td v-bind:class="priceIdentifier(item.total_price, item.received)">{{ formatPrice(item.received) }}</td>
                   <td>
                     <button class = "btn btn-sm btn-info" v-on:click="viewDetails(item.po_no)"><i class = "fa fa-search"></i></button>
                   </td>
+                  <td><button class = "btn btn-sm btn-success" v-on:click="receiveDetails(item)"><i class = "fa fa-caret-square-o-left"></i></button></td>
                 </tr>
                 </tbody>
               </table>
@@ -119,6 +123,52 @@
                       <td>{{ item.price_per_piece }}</td>
                       <td>{{ item.qty }}</td>
                       <td v-bind:class="priceIdentifier(item.qty, item.received)">{{ item.received }}</td>
+                      <td>
+                        {{ formatPrice(item.received * item.price_per_piece) }}
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" v-on:click="hide()" class="btn btn-info pull-right">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="receive_details">
+      <div class="modal-dialog modal-80">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4>{{selected_vendor}}</h4>
+            <button type="button" class="btn btn-danger btn-sm pull-right" data-dismiss="modal"><i class = "fa fa-close"></i></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="table-responsive m-t-40">
+                  <table class="display nowrap table datatable table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Price</th>
+                      <th>Qty</th>
+                      <th>Received</th>
+                      <th>Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(item, index) in selectedData" :key="index">
+                      <td>{{ item.item }}</td>
+                      <td>{{ item.price_per_piece }}</td>
+                      <td>{{ item.qty }}</td>
+                      <td ><input type = "number" class = "form-control" v-model = "item.received"/></td>
                       <td>
                         {{ formatPrice(item.received * item.price_per_piece) }}
                       </td>
@@ -236,6 +286,11 @@ export default {
       this.selected_vendor = `#${item.po_no} - ${item.name}`
       this.selectedData = item.details
       $('#view_details').modal('show')
+    },
+    receiveDetails (item) {
+      this.selectedData = item.details
+      this.selected_vendor = `#${item.po_no} - ${item.name}`
+      $('#receive_details').modal('show')
     },
     priceIdentifier (priceA, priceB) {
       return priceA === priceB ? 'alert alert-success' : 'alert alert-danger'

@@ -23,6 +23,8 @@ require('../static/css/style.css')
 require('../static/css/helper.css')
 require('metismenu')
 require('../static/js/lib/datatables/datatables.min.js')
+require('daterangepicker')
+require('daterangepicker/daterangepicker.css')
 Vue.config.productionTip = false
 Vue.use(VModal, { dynamic: true })
 new Vue({

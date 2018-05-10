@@ -13,6 +13,7 @@
                                     <th>Name</th>
                                     <th>Used For</th>
                                     <th>inventory</th>
+                                    <th>Cost Of Sales</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -20,6 +21,7 @@
                                     <td>{{item.name}}</td>
                                     <td>{{item.material}}</td>
                                     <td>{{item.inventory}}</td>
+                                    <td>{{item.cof}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -101,47 +103,56 @@ export default {
         {
           name: 'HDPE RESIN',
           material: 'For Caps',
-          inventory: '1000'
+          inventory: '1000',
+          cof: 2.90
         },
         {
           name: 'COLORANT FOR CAPS',
           material: 'For Caps',
-          inventory: '1000'
+          inventory: '1000',
+          cof: 2.90
         },
         {
           name: 'CLEAR PLASTIC (PAMBALOT)',
           material: 'For Caps',
-          inventory: '1000'
+          inventory: '1000',
+          cof: 2.90
         },
         {
           name: 'PET RESIN ',
           material: 'For Pet Bottles',
-          inventory: '1000'
+          inventory: '1000',
+          cof: 2.90
         },
         {
           name: 'CLEAR PLASTIC (PAMBALOT)',
           material: 'For Pet Bottles',
-          inventory: '1000'
+          inventory: '1000',
+          cof: 1.90
         },
         {
           name: 'CARTON',
           material: 'For Bottled Water',
-          inventory: '1000'
+          inventory: '1000',
+          cof: 1.90
         },
         {
           name: 'LABELS',
           material: 'For Bottled Water',
-          inventory: '1000'
+          inventory: '1000',
+          cof: 2.90
         },
         {
           name: 'CAPSEAL',
           material: 'For Bottled Water',
-          inventory: '1000'
+          inventory: '1000',
+          cof: 5.90
         },
         {
           name: 'SHRINK PLASTIC',
           material: 'For Bottled Water',
-          inventory: '1000'
+          inventory: '1000',
+          cof: 5.90
         }
       ]
     }

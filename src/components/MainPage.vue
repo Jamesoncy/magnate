@@ -6,7 +6,7 @@
         <div class="navbar-header">
           <a class="navbar-brand">
             <!-- Logo icon -->
-            <b>Magnate</b>
+            <b style = "color: black">Test-App</b>
           </a>
         </div>
         <!-- End Logo -->
@@ -34,8 +34,15 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
-                        <li class="nav-label">Home</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Products Setup</span></a>
+                        <li class="nav-label"> <router-link :to="{ path: '/dashboard'}"><span class="hide-menu">Dashboard</span></router-link></li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-arrow-circle-right"></i><span class="hide-menu">System Access</span></a>
+                          <ul aria-expanded="false" class="collapse">
+                            <router-link :to="{ path: '/system-setup/user'}"><span class="hide-menu">User</span></router-link>
+                            <router-link :to="{ path: '/system-setup/role'}"><span class="hide-menu">Role</span></router-link>
+                            <router-link :to="{ path: '/system-setup/branches'}"><span class="hide-menu">Branches</span></router-link>
+                          </ul>
+                        </li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-product-hunt"></i><span class="hide-menu">Products Setup</span></a>
                             <ul aria-expanded="false" class="collapse">
                               <router-link :to="{ path: '/products-setup/raw-materials'}"><span class="hide-menu">Raw Materials</span></router-link>
                               <router-link :to="{ path: '/products-setup/Products'}"><span class="hide-menu">Products</span></router-link>
@@ -43,12 +50,19 @@
                               <router-link :to="{ path: '/products-setup/purchase-raw-materials'}"><span class="hide-menu">Request Raw Mats</span></router-link>
                             </ul>
                         </li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Transaction</span></a>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-refresh"></i><span class="hide-menu">Transaction</span></a>
                         <ul aria-expanded="false" class="collapse">
                           <router-link :to="{ path: '/transaction/bottled-water'}"><span class="hide-menu">Bottled Water</span></router-link>
                           <router-link :to="{ path: '/transaction/create-bottled-water'}"><span class="hide-menu">Create Bottled Water</span></router-link>
                           <router-link :to="{ path: '/transaction/transfer-bottled-water'}"><span class="hide-menu">Transfer Bottled Water</span></router-link>
                           <router-link :to="{ path: '/transaction/uom'}"><span class="hide-menu">Uom</span></router-link>
+                        </ul>
+                      </li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-file"></i><span class="hide-menu">Inquiries</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                          <router-link :to="{ path: '/inquiry/sales-profit'}"><span class="hide-menu">Sales Profit</span></router-link>
+                          <router-link :to="{ path: '/inquiry/loss-bottle-water'}"><span class="hide-menu">Loss Bottle Report</span></router-link>
+                          <router-link :to="{ path: '/inquiry/top-customer'}"><span class="hide-menu">Top Customers</span></router-link>
                         </ul>
                       </li>
                     </ul>
@@ -77,7 +91,7 @@
       </div>
       <!-- End Container fluid  -->
       <!-- footer -->
-      <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a></footer>
+      <footer class="footer"></footer>
       <!-- End footer -->
     </div>
     <!-- End Page wrapper  -->
@@ -93,10 +107,16 @@ export default {
   },
   mounted () {
     $('.datatable').DataTable()
+    $('input[name="daterange"]').daterangepicker({
+      opens: 'left'
+    })
     this.changeTitle()
   },
   updated () {
     $('.datatable').DataTable()
+    $('input[name="daterange"]').daterangepicker({
+      opens: 'left'
+    })
   },
   beforeUpdate () {
     this.changeTitle()

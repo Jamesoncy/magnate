@@ -10,6 +10,13 @@ import BottledWater from '@/components/BottledWater'
 import CreateWater from '@/components/CreateWater'
 import TransferBottledWater from '@/components/TransferBottledWater'
 import Uom from '@/components/Uom'
+import Dashboard from '@/components/Dashboard'
+import SalesProfit from '@/components/SalesProfit'
+import LossBottleWater from '@/components/LossBottleWater'
+import TopCustomer from '@/components/TopCustomer'
+import User from '@/components/User'
+import Role from '@/components/Role'
+import Branches from '@/components/Branches'
 
 Vue.use(Router)
 Vue.mixin({
@@ -20,9 +27,14 @@ Vue.mixin({
     getDocItems: function (items) {
       if (items.length === 0) window.location.href = '/main-page'
     },
-    formatPrice (value) {
-      let val = (value / 1).toFixed(2).replace('.', ',')
-      return 'P ' + val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+    formatNumber (value) {
+      return this.formatPrice(value, false)
+    },
+    formatPrice (value, bool = true) {
+      const val = (value / 1).toFixed(2).replace('.', ',')
+      const number = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+      if (bool) return 'P ' + number
+      return number
     }
   }
 })
@@ -33,6 +45,16 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/',
+      name: 'Dashboard',
+      component: MainPage,
+      children: [
+        {
+          path: 'dashboard',
+          component: Dashboard
+        }]
     },
     {
       path: '/dashboard',
@@ -86,6 +108,44 @@ export default new Router({
         {
           path: 'uom',
           component: Uom
+        }
+      ]
+    },
+    {
+      path: '/inquiry',
+      name: 'MainPage',
+      component: MainPage,
+      children: [
+        {
+          path: 'sales-profit',
+          component: SalesProfit
+        },
+        {
+          path: 'loss-bottle-water',
+          component: LossBottleWater
+        },
+        {
+          path: 'top-customer',
+          component: TopCustomer
+        }
+      ]
+    },
+    {
+      path: '/system-setup',
+      name: 'MainPage',
+      component: MainPage,
+      children: [
+        {
+          path: 'user',
+          component: User
+        },
+        {
+          path: 'role',
+          component: Role
+        },
+        {
+          path: 'branches',
+          component: Branches
         }
       ]
     }

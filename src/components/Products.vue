@@ -13,6 +13,7 @@
                                     <th>Name</th>
                                     <th>Details</th>
                                     <th>inventory</th>
+                                    <th>Cost Of Sales</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -24,6 +25,7 @@
                                         </ul>
                                     </td>
                                     <td>{{item.inventory}}</td>
+                                    <td>{{item.cof}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -97,12 +99,14 @@ export default {
         {
           name: 'SRS 300ml',
           details: ['Caps', 'Clear Plastic'],
-          inventory: '1000'
+          inventory: '1000',
+          cof: 3.90
         },
         {
           name: 'SRS 500 ml',
           details: ['Caps', 'Clear Plastic'],
-          inventory: '1000'
+          inventory: '1000',
+          cof: 3.90
         }
       ]
     }
