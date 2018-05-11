@@ -69,6 +69,7 @@
                         <li> <router-link :to="{ path: '/customer'}"><i class="fa fa-user"></i><span class="hide-menu">Customer</span></router-link></li>
                         <li> <router-link :to="{ path: '/receiving'}"><i class="fa fa-truck"></i><span class="hide-menu">Receiving</span></router-link></li>
                         <li> <router-link :to="{ path: '/inventory'}"><i class="fa fa-bar-chart"></i><span class="hide-menu">Inventory</span></router-link></li>
+                        <li> <router-link :to="{ path: '/sell-bottles'}"><i class="fa fa-money"></i><span class="hide-menu">Sell Bottled Water</span></router-link></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -141,5 +142,18 @@ export default {
   }
   .btnLogout:hover {
     background-color: #b3c6ff;
+  }
+</style>
+
+<style>
+  .modal-dialog {
+    width: 900px;
+  }
+  .modal-content {
+    width: 900px;
+  }
+  .modal-content {
+    width: 900px;
+    margin-left: -150px;
   }
 </style>

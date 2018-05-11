@@ -318,16 +318,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .modal-dialog {
-    width: 900px;
-  }
-  .modal-content {
-    width: 900px;
-  }
-  .modal-content {
-    width: 900px;
-    margin-left: -150px;
-  }
-</style>

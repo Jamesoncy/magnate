@@ -21,6 +21,7 @@ import DashboardInventory from '@/components/DashboardInventory'
 import Customer from '@/components/Customer'
 import Receiving from '@/components/Receiving'
 import Inventory from '@/components/Inventory'
+import SellBottles from '@/components/SellBottles'
 
 Vue.use(Router)
 Vue.mixin({
@@ -183,6 +184,11 @@ export default new Router({
           path: '/inventory',
           name: 'Inventory',
           component: Inventory
+        },
+        {
+          path: '/sell-bottles',
+          name: 'SellBottles',
+          component: SellBottles
         }
       ]
     }
