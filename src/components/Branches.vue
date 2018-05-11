@@ -84,7 +84,7 @@
 <script>
 import _ from 'lodash'
 export default {
-  name: 'Role',
+  name: 'Branches',
   data () {
     return {
       data: [

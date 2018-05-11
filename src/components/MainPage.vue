@@ -110,24 +110,19 @@ export default {
     $('input[name="daterange"]').daterangepicker({
       opens: 'left'
     })
-    this.changeTitle()
   },
   updated () {
     $('.datatable').DataTable()
-    $('input[name="daterange"]').daterangepicker({
-      opens: 'left'
-    })
-  },
-  beforeUpdate () {
     this.changeTitle()
   },
   methods: {
     changeTitle () {
       const path = this.$router.history.current.path
+
       // eslint-disable-next-line
       const pathArray = path.split('\/')
-      this.title = pathArray.pop()
-      this.title = this.title.replace(new RegExp('-', 'g'), ' ')
+      let titleRoute = pathArray.pop()
+      this.title = titleRoute.replace(new RegExp('-', 'g'), ' ')
     }
   }
 }

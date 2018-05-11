@@ -56,7 +56,7 @@
             </div>
             <div class="row">
               <div class="col-sm-12">
-                <input type="text" v-model="name" class="form-control">
+                <input type="text" class="form-control">
               </div>
             </div>
             <div class="row">
@@ -66,7 +66,7 @@
             </div>
             <div class="row">
               <div class="col-sm-12">
-                <input type="text" v-model="name" class="form-control">
+                <input type="text" class="form-control">
               </div>
             </div>
             <div class="row">
@@ -76,7 +76,7 @@
             </div>
             <div class="row">
               <div class="col-sm-12">
-                <input type="text" v-model="name" class="form-control">
+                <input type="text" class="form-control">
               </div>
             </div>
             <div class="row">
@@ -86,7 +86,7 @@
             </div>
             <div class="row">
               <div class="col-sm-12">
-                <input type="text" v-model="name" class="form-control">
+                <input type="text" class="form-control">
               </div>
             </div>
             <div class="row">

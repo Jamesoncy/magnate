@@ -196,7 +196,8 @@ export default {
   data () {
     return {
       view_details: {},
-      selected_data: [],
+      selectedData: [],
+      selected: [],
       selected_vendor: '',
       data: [
         {

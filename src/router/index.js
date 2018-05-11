@@ -35,6 +35,13 @@ Vue.mixin({
       const number = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
       if (bool) return 'P ' + number
       return number
+    },
+    changeTitle () {
+      const path = this.$router.history.current.path
+      // eslint-disable-next-line
+      const pathArray = path.split('\/')
+      this.title = pathArray.pop()
+      this.title = this.title.replace(new RegExp('-', 'g'), ' ')
     }
   }
 })
@@ -63,7 +70,7 @@ export default new Router({
     },
     {
       path: '/products-setup',
-      name: 'MainPage',
+      name: 'ProductsSetup',
       component: MainPage,
       children: [
         {
@@ -86,7 +93,7 @@ export default new Router({
     },
     {
       path: '/transaction',
-      name: 'MainPage',
+      name: 'Transaction',
       component: MainPage,
       children: [
         {
@@ -113,7 +120,7 @@ export default new Router({
     },
     {
       path: '/inquiry',
-      name: 'MainPage',
+      name: 'Inquiry',
       component: MainPage,
       children: [
         {
@@ -132,7 +139,7 @@ export default new Router({
     },
     {
       path: '/system-setup',
-      name: 'MainPage',
+      name: 'SystemSetup',
       component: MainPage,
       children: [
         {
