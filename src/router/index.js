@@ -17,6 +17,10 @@ import TopCustomer from '@/components/TopCustomer'
 import User from '@/components/User'
 import Role from '@/components/Role'
 import Branches from '@/components/Branches'
+import DashboardInventory from '@/components/DashboardInventory'
+import Customer from '@/components/Customer'
+import Receiving from '@/components/Receiving'
+import Inventory from '@/components/Inventory'
 
 Vue.use(Router)
 Vue.mixin({
@@ -153,6 +157,32 @@ export default new Router({
         {
           path: 'branches',
           component: Branches
+        }
+      ]
+    },
+    {
+      path: '/branch-dashboard',
+      name: 'BranchDashboard',
+      component: MainPage,
+      children: [
+        {
+          path: 'inventory-graph',
+          component: DashboardInventory
+        },
+        {
+          path: '/customer',
+          name: 'Customer',
+          component: Customer
+        },
+        {
+          path: '/receiving',
+          name: 'Receiving',
+          component: Receiving
+        },
+        {
+          path: '/inventory',
+          name: 'Inventory',
+          component: Inventory
         }
       ]
     }

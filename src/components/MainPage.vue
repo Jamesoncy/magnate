@@ -65,6 +65,10 @@
                           <router-link :to="{ path: '/inquiry/top-customer'}"><span class="hide-menu">Top Customers</span></router-link>
                         </ul>
                       </li>
+                        <li class="nav-label"> <router-link :to="{ path: '/branch-dashboard/inventory-graph'}"><span class="hide-menu">Dashboard</span></router-link></li>
+                        <li> <router-link :to="{ path: '/customer'}"><i class="fa fa-user"></i><span class="hide-menu">Customer</span></router-link></li>
+                        <li> <router-link :to="{ path: '/receiving'}"><i class="fa fa-truck"></i><span class="hide-menu">Receiving</span></router-link></li>
+                        <li> <router-link :to="{ path: '/inventory'}"><i class="fa fa-bar-chart"></i><span class="hide-menu">Inventory</span></router-link></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
