@@ -26,7 +26,7 @@
                    </select>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-info pull-right">Generate</button>
+                  <a :href="generateReport()"  target = "_blank" class="btn btn-info pull-right">Generate</a>
                 </div>
               </form>
             </div>
@@ -56,6 +56,49 @@ export default {
           id: 3,
           name: 'Company C'
         }
+      ],
+      report: [
+        {
+          name: 'Company A',
+          data: [
+            {
+              date: '2017-01-01',
+              sales: 190000,
+              cost_of_sales: 10000,
+              profit: 90000
+            },
+            {
+              date: '2017-01-02',
+              sales: 190000,
+              cost_of_sales: 10000,
+              profit: 90000
+            },
+            {
+              date: '2017-01-03',
+              sales: 190000,
+              cost_of_sales: 10000,
+              profit: 90000
+            },
+            {
+              date: '2017-01-04',
+              sales: 190000,
+              cost_of_sales: 10000,
+              profit: 90000
+            },
+            {
+              date: '2017-01-05',
+              sales: 190000,
+              cost_of_sales: 10000,
+              profit: 90000
+            },
+            {
+              date: '2017-01-06',
+              sales: 190000,
+              cost_of_sales: 10000,
+              profit: 90000
+            }
+          ]
+        }
       ]
     }
   },
@@ -71,6 +114,9 @@ export default {
       const key = _.findLastIndex(this.raw_mats, function (o) { return o.id === searchId })
       const item = this.raw_mats[key]
       this.item_select.push(item)
+    },
+    generateReport () {
+      return require('../assets/files/sales_profit.xlsx')
     },
     removeSelected (index) {
       _.remove(this.item_select, function (n) {

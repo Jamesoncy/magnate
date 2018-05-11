@@ -3,33 +3,88 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="card">
-          <div class="card-title">
-            <h4>Generate Sales Profit</h4>
-          </div>
           <div class="card-body">
-            <div class="basic-form">
-              <form>
-                <div class="form-group">
-                  <h6 >Date Range:</h6>
-                  <input type="text" name="daterange"  class = "form-control ui-flat" value="01/01/2018 - 01/15/2018" />
-                </div>
-                <div class="form-group">
-                  <h6 >Select Branch:</h6>
-                  <select class="form-control selectpicker bs-select" data-live-search="true" title="Choose one of the following...">
-                    <option
-                      v-for="(option, index) in branches"
-                      :key="index"
-                      :value="option.id"
-                    >
-                      {{ option.name }}
-                    </option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="btn btn-info pull-right">Generate</button>
-                </div>
-              </form>
+            <h4 class="card-title pull-left">User List</h4>
+            <button class="btn btn-info m-b-10 m-l-5 pull-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></button>
+            <div class="table-responsive m-t-40">
+              <table class="display nowrap table datatable table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                  <th>Full Name</th>
+                  <th>Department</th>
+                  <th>Access</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(item, index) in data" :key="index">
+                  <td>{{item.full_name}}</td>
+                  <td>{{item.department}}</td>
+                  <td>{{item.access.join(', ')}}</td>
+                  <td><button class = "btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" ><i class = "fa fa-recycle"></i></button></td>
+                </tr>
+                </tbody>
+              </table>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4>User Form</h4>
+            <button type="button" class="btn btn-danger btn-sm pull-right" data-dismiss="modal"><i class = "fa fa-close"></i></button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <label class = "pull-left">Full Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <input type = "" class = "form-control"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <label class = "pull-left">Department</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <select class="form-control selectpicker bs-select" data-live-search="true" title="Choose one of the following...">
+                  <option
+                    v-for="(option, index) in department"
+                    :key="index"
+                    :value="option.id"
+                  >
+                    {{ option.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <label class = "pull-left">Access</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <ul class="list-group">
+                  <li class="list-group-item"  v-for="(option, index) in access"
+                      :key="index">{{option}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" v-on:click="hide()" class="btn btn-info pull-right">Save</button>
           </div>
         </div>
       </div>
@@ -43,20 +98,41 @@ export default {
   name: 'User',
   data () {
     return {
-      branches: [
+      data: [
         {
           id: 1,
-          name: 'Company A'
+          full_name: 'James F. Roncesvalles',
+          department: 'IT',
+          access: ['Products', 'Raw Mats', 'Sales Profit']
         },
         {
           id: 2,
-          name: 'Company B'
+          full_name: 'Melvin Ramos',
+          department: 'Purchaser',
+          access: ['Products', 'Raw Mats', 'Sales Profit']
         },
         {
           id: 3,
-          name: 'Company C'
+          full_name: 'Sales Person',
+          department: 'Sales',
+          access: ['Products', 'Raw Mats', 'Sales Profit']
         }
-      ]
+      ],
+      department: [
+        {
+          id: 1,
+          name: 'IT'
+        },
+        {
+          id: 2,
+          name: 'Sales'
+        },
+        {
+          id: 3,
+          name: 'Purchaser'
+        }
+      ],
+      access: ['System Access', 'Raw Mats', 'Products']
     }
   },
   mounted () {

@@ -14,6 +14,10 @@
                   <input type="text" name="daterange"  class = "form-control ui-flat" value="01/01/2018 - 01/15/2018" />
                 </div>
                 <div class="form-group">
+                  <h6>Top: </h6>
+                  <input type="number" class = "form-control ui-flat" value=10 />
+                </div>
+                <div class="form-group">
                   <h6 >Select Branch:</h6>
                   <select class="form-control selectpicker bs-select" data-live-search="true" title="Choose one of the following...">
                     <option
@@ -26,7 +30,7 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-info pull-right">Generate</button>
+                  <a :href="generateReport()"  target = "_blank" class="btn btn-info pull-right">Generate</a>
                 </div>
               </form>
             </div>
@@ -44,10 +48,6 @@ export default {
   data () {
     return {
       branches: [
-        {
-          id: 4,
-          name: 'ALL'
-        },
         {
           id: 1,
           name: 'Company A'
@@ -75,6 +75,9 @@ export default {
       const key = _.findLastIndex(this.raw_mats, function (o) { return o.id === searchId })
       const item = this.raw_mats[key]
       this.item_select.push(item)
+    },
+    generateReport () {
+      return require('../assets/files/top_customer.xlsx')
     },
     removeSelected (index) {
       _.remove(this.item_select, function (n) {

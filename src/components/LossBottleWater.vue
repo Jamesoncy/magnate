@@ -26,7 +26,7 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-info pull-right">Generate</button>
+                  <a :href="generateReport()"  target = "_blank" class="btn btn-info pull-right">Generate</a>
                 </div>
               </form>
             </div>
@@ -69,6 +69,9 @@ export default {
   methods: {
     hide () {
       $('#myModal').modal('hide')
+    },
+    generateReport () {
+      return require('../assets/files/loss_report.xlsx')
     },
     addRow () {
       const searchId = this.item_pick
